@@ -1,0 +1,48 @@
+<!-- Form -->
+<h1>New Food Truck</h1>
+<form (submit)="onSubmit()" #ownerForm="ngForm">
+
+  <mat-form-field>
+    <input matInput placeholder="First Name" name="First Name" #firstName="ngModel" required [(ngModel)]="ownerData.ownerFirstName" aria-label="First Name">
+    <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+      First Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Last Name" name="Last Name" #lastName="ngModel" required [(ngModel)]="ownerData.ownerLastName" aria-label="Last Name">
+    <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+      Last Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Your Food Truck or Brand Name" name="Food Truck or Brand Name" #brandName="ngModel" required [(ngModel)]="ownerData.brandName" aria-label="Your Food Truck or Brand Name">
+    <mat-error *ngIf="brandName.invalid && (brandName.dirty || brandName.touched)">
+      Your Food Truck or Brand Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="email" matInput placeholder="account@domain.com" name="Email" #email="ngModel" required [(ngModel)]="ownerData.email" aria-label="Email">
+    <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+      Email is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Address" name="Address" [(ngModel)]="ownerData.address" aria-label="Address">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Website URL" name="Website URL" [(ngModel)]="ownerData.websiteUrl" aria-label="Website URL">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input type="text" matInput placeholder="Menu URL" name="Menu URL" [(ngModel)]="ownerData.menuUrl" aria-label="Menu URL">
+  </mat-form-field>
+
+  <!-- Add and Cancel buttons -->
+  <button mat-button color="warn" aria-label="Cancel add" (click)="cancelAdd()">Cancel</button>
+  <button mat-button color="primary" aria-label="Add food truck button" [disabled]="ownerForm.invalid">Add</button>
+</form>

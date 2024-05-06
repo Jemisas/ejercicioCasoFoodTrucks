@@ -1,0 +1,7 @@
+<mat-toolbar color="primary">
+  <h1>Food Truck Lovers</h1>
+  <div class="mat-spacer"></div>
+  <ng-container *ngFor="let option of options">
+    <a mat-button [routerLink]="option.path">{{ option.title }}</a>
+  </ng-container>
+</mat-toolbar>
